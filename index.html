@@ -3,265 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IST1020 Course Hub</title>
+    <title>IST1020 Course Assistant</title>
     <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(45deg, #ff8a00, #da1b60, #1e90ff, #8a2be2);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
-        }
-        /* Gradient Animation Keyframes */
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-             }
-            100% {
-                background-position: 0% 50%;
-            }
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
         }
 
-    h1, h2, h3 {
-    font-family: 'times-new-roman', sans-serif;
-    font-weight: bold;
-    color: whitesmoke; /* Heading color */
-    }
+        /* Header styling */
+        header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header .logo {
+            position: absolute; 
+            top: 10px;          
+            left: 20px;        
+            width: 100px;        
+            height: auto;       
+        }
 
-    h1 {
-    text-align: center;
-    margin-top: 20px;
-    }
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
 
-    h2 {
-    margin: 20px 0;
-    }
+        header p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .gif-container {
+            display: flex;
+            gap: 10px; /* Adjust space between GIFs */
+            justify-content: center; /* Center the GIFs in the container */
+            width: 100%; /* Full width for responsiveness */
+        }
 
-    h3 {
-    text-align: center;
-    margin-top: 10px;
-    }
+        .gif-container iframe {
+            width: 48%; /* Set width for each GIF so they fit side by side */
+            max-width: 100%; /* Ensure GIFs are responsive */
+            height: auto;
+            border-radius: 5px;
+        }
 
-    .container {
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 20px;
-    
-    }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-    .chapter-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    }
+        /* Section header styling */
+        h2 {
+            color: #1e90ff;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chatbot {
+            width: 100%;
+            height: 600px; /* Increased height for better visibility */
+            margin-bottom: 40px;
+            border: 2px solid #1e90ff; /* Optional border for visual emphasis */
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for better contrast */
+        }
 
-    .chapter {
-    background-color: rgba(176, 224, 230, 0); /* Chapter background color */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    }
+        /* Chapter rows */
+        .chapter-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
 
-    .chapter img {
-    width: 120px;
-    height: 120px;
-    margin-right: 20px;
-    border-radius: 5px;
-    }
+        /* Chapter card styling */
+        .chapter {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 300px;
+            max-width: 48%;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
 
-    .chapter-content {
-    flex: 1;
-    }
+        .chapter h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #333;
+        }
 
-    .chapter p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-    text-align: justify;
-    }
+        .chapter iframe {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
 
-    /* Footer Styling */
-    .footer {
-    background-color: #555; /* Footer background color */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    }
+        .chapter p {
+            color: #555;
+            font-size: 1em;
+            text-align: justify;
+        }
 
-    .footer-description {
-    margin-bottom: 15px;
-    }
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
 
-    .social-media-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    }
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .social-icon img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-    }
+        .social-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
 
-    .social-icon img:hover {
-    transform: scale(1.2);
-    }
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+        .social-icon img:hover {
+            transform: scale(1.2);
+        }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .chapter-row {
+                flex-direction: column;
+            }
 
-   
+            .chapter {
+                max-width: 100%;
+            }
+
+            header h1 {
+                font-size: 2.4em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+        }
     </style>
 </head>
 <body>
-    <h1>UNDERSTANDING COMPUTERS IST 1020 LEARNING ASSISTANT</h1>
-    <h3>Interact with our chatbot. ist1020help will provide you with any content in the course-text and notes</h3>
+
+    <!-- Header Section -->
+    <header>
+        <img src="images/logo (1).png" alt="IST1020 Course Hub Logo" class="logo">
+        <h1>IST 1020: Understanding Computers</h1>
+        <p>Your interactive learning assistant! Explore concepts from hardware basics to networking and software in a structured format.</p>
+    </header>
+
+    <!-- Main Container -->
     <div class="container">
         <!-- Chatbot Integration -->
-        <iframe src="https://copilotstudio.microsoft.com/environments/113dcd00-8fd2-e5d0-b39f-4c6dfef5df4e/bots/crda1_is1020Help/webchat?__version__=2" frameborder="0" style="width: 100%; height: 400px; margin-bottom: 40px;"></iframe>
-        
-        
-        <!-- Chapter 1 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/cgvfTLSvt9jHTQDd5j" width="350" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/morray-cgvfTLSvt9jHTQDd5j"></a></p>
-            <div class="chapter-content">
-                <h2>Introduction to the World of Technology</h2>
+         <p><h1>INTERACT WITH OUR CHATBOT AND GET INSIGHTS AND ANSWERS ON THE COURSETEXT</h1></p>
+        <iframe class="chatbot" src="https://copilotstudio.microsoft.com/environments/113dcd00-8fd2-e5d0-b39f-4c6dfef5df4e/bots/crda1_is1020Help/webchat?__version__=2"></iframe>
+
+        <!-- Chapter Grid Layout -->
+
+        <!-- Chapter Grid Layout -->
+        <div class="chapter-row">
+            <!-- Chapter 1 -->
+            <div class="chapter">
+                    <div class="gif-container">
+                        <iframe src="https://giphy.com/embed/cgvfTLSvt9jHTQDd5j" frameborder="0" allowFullScreen></iframe>
+                        <iframe src="https://giphy.com/embed/rcnEKkrMkXVis772zU" frameborder="0" allowFullScreen></iframe>
+                    </div>
+                
+                <h3>Introduction to the World of Technology</h3>
                 <p>This introduces technology's pervasive role, from home and work to education. It defines what a computer is, distinguishing it as a device that processes data into information. It introduces the basic computer components, such as hardware and software, emphasizing their functions. Key types of computing devices, like desktops, laptops, and mobile devices, are discussed along with their respective uses in daily life. The chapter also covers the evolution of computers and introduces early tech pioneers. Networking concepts are introduced, particularly the Internet, and the chapter concludes by examining the social benefits and risks that arise with increased dependence on technology, such as privacy concerns and digital divides.</p>
             </div>
-        </div>
 
-        <!-- Chapter 2 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/40qxxf2K811TIS85Sn" width="350" height="370" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/wespark-pc-rgb-pcmr-40qxxf2K811TIS85Sn"></a></p>
-            <div class="chapter-content">
-                <h2>The System Unit, Processing, and Memory</h2>
+            <!-- Chapter 2 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/pvMAs8Fg7gj0yUbtoP" width="480" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pvMAs8Fg7gj0yUbtoP"></a></p>
+                    <iframe src="https://giphy.com/embed/40qxxf2K811TIS85Sn" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>The System Unit, Processing, and Memory</h3>
                 <p>This delves into the internal architecture of a computer’s system unit, highlighting its crucial components. It explains the CPU's role as the “brain” of the computer, executing instructions and performing calculations. Memory types such as RAM and ROM are discussed in detail, including their functions in short-term and permanent data storage. The motherboard, which connects all hardware components, is explored along with the system clock, which synchronizes processes. The chapter explains how data is represented in binary and covers various memory storage types, including primary, secondary, and cache memory. It also discusses cooling systems, which prevent components from overheating, and introduces the concept of overclocking to enhance system performance.</p>
             </div>
         </div>
 
-        <!-- Chapter 3 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/3og0IKEvaJHraoVNiE" width="350" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/90s-retro-windows-95-3og0IKEvaJHraoVNiE"></a></p>
-            <div class="chapter-content">
-                <h2>Storage</h2>
+        <div class="chapter-row">
+            <!-- Chapter 3 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/Qf21piR4AxFMLCyF0k" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Qf21piR4AxFMLCyF0k"></a></p>
+                    <iframe src="https://giphy.com/embed/3og0IKEvaJHraoVNiE" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Storage</h3>
                 <p>This explores various storage systems, beginning with an explanation of storage technology fundamentals, such as the distinction between volatile and non-volatile storage. It covers traditional magnetic hard drives, which use spinning disks, and modern solid-state drives (SSDs), which rely on flash memory for faster data access. The chapter also introduces optical discs, like CDs, DVDs, and Blu-rays, and explains how they store data through lasers. Flash memory, found in USB drives and memory cards, is highlighted for its portability. The advantages and disadvantages of each storage type are discussed, alongside their use cases. The chapter concludes with best practices for data backup and discusses cloud storage as a modern solution for both personal and business data management.</p>
             </div>
-        </div>
 
-        <!-- Chapter 4 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/AqLNLC4rQuB7BiddES" width="350" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Elgato-microphone-audio-setup-streaming-AqLNLC4rQuB7BiddES"></a></p>
-            <div class="chapter-content">
-                <h2>Input and Output</h2>
+            <!-- Chapter 4 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/gIM7WLnBmyWHPWs7va" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/gIM7WLnBmyWHPWs7va"></a></p>
+                    <iframe src="https://giphy.com/embed/AqLNLC4rQuB7BiddES" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Input and Output</h3>
                 <p>This examines input devices, such as keyboards, mice, scanners, and digital cameras, which allow users to enter data into computers. It explains how input devices translate physical actions into digital data. Output devices, like monitors and printers, are also covered, showing how data is converted back into a readable form. Special attention is given to touchscreen technology, which serves as both an input and output device. The chapter discusses display device quality, covering aspects such as resolution and refresh rates, and explores types of printers, including inkjet and laser printers. Audio input and output devices, such as microphones and speakers, are discussed as well, emphasizing their role in multimedia environments.</p>
             </div>
         </div>
 
-        <!-- Chapter 5 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/edl5t7nDVPtC" width="350" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/piece-screens-startup-edl5t7nDVPtC"></a></p>
-            <div class="chapter-content">
-                <h2>System Software: Operating Systems and Utility Programs</h2>
+        <div class="chapter-row">
+            <!-- Chapter 5 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/96Ic54IavnkIiw1WRN" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/96Ic54IavnkIiw1WRN"></a></p>
+                    <iframe src="https://giphy.com/embed/edl5t7nDVPtC" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>System Software: Operating Systems and Utility Programs</h3>
                 <p>This provides an overview of system software, focusing on operating systems and utility programs. Operating systems manage hardware and software resources, with examples such as Windows, macOS, and Linux. Topics covered include file management, memory allocation, and multitasking. Utility programs that enhance system functionality, such as file backup, disk cleanup, and antivirus programs, are also discussed. The chapter emphasizes the importance of keeping operating systems updated for security and efficiency. Key features of mobile operating systems, including Android and iOS, are also highlighted, and the chapter concludes by discussing system software’s role in maintaining a stable computing environment.</p>
             </div>
-        </div>
 
-        <!-- Chapter 6 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/FoKvizR0VflMD30oeG" width="350" height="420" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/window-application-shortcut-FoKvizR0VflMD30oeG"></a></p>
-            <div class="chapter-content">
-                <h2>Application Software: Desktop and Mobile Apps</h2>
+            <!-- Chapter 6 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/dq0r9CgXxsQ9NDdTnd" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dq0r9CgXxsQ9NDdTnd"></a></p>
+                    <iframe src="https://giphy.com/embed/FoKvizR0VflMD30oeG" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Application Software: Desktop and Mobile Apps</h3>
                 <p>Application software enables users to perform specific tasks, such as word processing, data analysis, and graphic design. This chapter introduces different categories of software, including productivity applications (Microsoft Word, Excel), multimedia software, and web browsers. Differences between desktop software and cloud-based applications are discussed, with attention given to data storage and accessibility. The chapter covers the importance of software updates, compatibility across devices, and the impact of licensing models, such as open-source and proprietary software. An overview of mobile apps highlights their convenience and popularity, especially in business and education. Finally, the chapter touches on the potential of artificial intelligence in future applications.</p>
             </div>
         </div>
-        <!-- Chapter 7 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/3o6Zt8hkOd16olgDra" width="350" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/voo-internet-haut-dbit-cble-3o6Zt8hkOd16olgDra"></a></p>
-            <div class="chapter-content">
-                <h2>Networks and Communication Devices</h2>
-                <p>This introduces the basics of networking, covering network types such as Local Area Networks (LANs) and Wide Area Networks (WANs). It explains the role of routers, switches, and modems in connecting devices and managing data traffic. Networking standards, like Ethernet and Wi-Fi, are discussed along with their relevance in both personal and business environments. Key protocols, including TCP/IP, ensure reliable data transmission, and the chapter also explores bandwidth, data rates, and signal types. Wireless networking standards, such as Bluetooth and 5G, are explained, emphasizing their uses and limitations. The chapter concludes with network security considerations, addressing common threats and protective measures.</p>
+
+        <div class="chapter-row">
+            <!-- Chapter 7 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/DssoPaiTpF3CdGBY4T" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/DssoPaiTpF3CdGBY4T"></a></p>
+                    <iframe src="https://giphy.com/embed/3o6Zt8hkOd16olgDra" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Networks and Communication Devices</h3>
+                <p>>This introduces the basics of networking, covering network types such as Local Area Networks (LANs) and Wide Area Networks (WANs). It explains the role of routers, switches, and modems in connecting devices and managing data traffic. Networking standards, like Ethernet and Wi-Fi, are discussed along with their relevance in both personal and business environments. Key protocols, including TCP/IP, ensure reliable data transmission, and the chapter also explores bandwidth, data rates, and signal types. Wireless networking standards, such as Bluetooth and 5G, are explained, emphasizing their uses and limitations. The chapter concludes with network security considerations, addressing common threats and protective measures.</p>
+            </div>
+
+            <!-- Chapter 8 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/m21IC1Nznx4aCeKKci" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/m21IC1Nznx4aCeKKci"></a></p>
+                    <iframe src="https://giphy.com/embed/3otOKlQbXcD80ayJ9e" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>The Internet</h3>
+                <p>>This explores the evolution of the Internet, from its origins as ARPANET to the global network we use today. It covers different types of Internet connections, including broadband, fiber-optic, and satellite. Users learn about ISPs, web browsers, and effective search techniques. Important topics include online privacy and security, with a focus on safe browsing practices and understanding cookies. The chapter also highlights online communication tools, such as email, social media, and video conferencing, and introduces e-commerce fundamentals, explaining how the Internet enables business transactions worldwide. Issues of censorship and data tracking are discussed to underscore the importance of digital rights.</p>
             </div>
         </div>
 
-        <!-- Chapter 8 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/3otOKlQbXcD80ayJ9e" width="350" height="432" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/animation-loop-3otOKlQbXcD80ayJ9e"></a></p>
-            <div class="chapter-content">
-                <h2>The Internet</h2>
-                <p>This explores the evolution of the Internet, from its origins as ARPANET to the global network we use today. It covers different types of Internet connections, including broadband, fiber-optic, and satellite. Users learn about ISPs, web browsers, and effective search techniques. Important topics include online privacy and security, with a focus on safe browsing practices and understanding cookies. The chapter also highlights online communication tools, such as email, social media, and video conferencing, and introduces e-commerce fundamentals, explaining how the Internet enables business transactions worldwide. Issues of censorship and data tracking are discussed to underscore the importance of digital rights.</p>
-            </div>
-        </div>
-
-        <!-- Chapter 9 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/RDZo7znAdn2u7sAcWH" width="350" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/SandiaLabs-cyber-security-cybersecurity-RDZo7znAdn2u7sAcWH"></a></p>
-            <div class="chapter-content">
-                <h2>Security and Privacy</h2>
+        <div class="chapter-row">
+            <!-- Chapter 9 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/GH17QykUakB8StM1sc" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/GH17QykUakB8StM1sc"></a></p>
+                    <iframe src="https://giphy.com/embed/RDZo7znAdn2u7sAcWH" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Security and Privacy</h3>
                 <p>This examines the challenges of maintaining security and privacy in a digital world. Key threats include malware, phishing, and identity theft, which compromise data and disrupt systems. It explains protective measures, such as firewalls, antivirus software, and encryption, which safeguard personal and business information. The chapter also discusses the importance of strong passwords and the risks associated with public Wi-Fi. Legal considerations for cybersecurity, such as data protection laws, are introduced, as well as ethical considerations for handling private data. The chapter concludes with a discussion on future trends in cybersecurity, including biometrics and behavioral analytics.</p>
             </div>
-        </div>
 
-        <!-- Chapter 10 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/iRpHNvNOeEwSDC1wYM" width="350" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/plants-control-panel-iRpHNvNOeEwSDC1wYM"></a></p>
-            <div class="chapter-content">
-                <h2>Information Systems and System Development</h2>
+            <!-- Chapter 10 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/BzVWvDwya9yARyLiyF" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/BzVWvDwya9yARyLiyF"></a></p>
+                    <iframe src="https://giphy.com/embed/iRpHNvNOeEwSDC1wYM" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Information Systems and System Development</h3>
                 <p>This provides an overview of information systems, covering their design, implementation, and management. Information systems support organizational goals by handling data processing and storage, from transaction systems to decision-support systems. The System Development Life Cycle (SDLC) is introduced as a structured approach to creating systems, with stages like analysis, design, and testing. Alternative development methodologies, such as agile and iterative approaches, are also discussed. The role of stakeholders, including system analysts and end-users, is emphasized in ensuring systems meet user needs. This chapter highlights the importance of project management, especially for large-scale system implementations.</p>
             </div>
         </div>
 
-        <!-- Chapter 11 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/jHRAf2A6WuduX2raSe" width="350" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/code-html-ashleyroephotography-jHRAf2A6WuduX2raSe"></a></p>
-                <div class="chapter-content">
-                <h2>Program Development and Programming Languages</h2>
+        <div class="chapter-row">
+            <!-- Chapter 11 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/sfdDY4VCtmLk9ln3yP" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sfdDY4VCtmLk9ln3yP"></a></p>
+                    <iframe src="https://giphy.com/embed/jHRAf2A6WuduX2raSe" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Program Development and Programming Languages</h3>
                 <p>This introduces programming concepts, covering the steps involved in creating software applications. It explains the Program Development Life Cycle (PDLC), from problem analysis to coding, debugging, and maintenance. Various programming languages are discussed, including procedural languages (like C) and object-oriented languages (like Java). The chapter introduces common tools for developers, such as Integrated Development Environments (IDEs), and highlights version control as essential for managing code changes. Concepts like variables, functions, and loops are covered as basic building blocks of programming. Additionally, it discusses different development methodologies, such as agile and adaptive methods, for efficient software development.</p>
             </div>
-        </div>
 
-        <!-- Chapter 12 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/iFO29qvMxgEh1EUKd0" width="350" height="264" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/etl-ssis-cozyroc-iFO29qvMxgEh1EUKd0"></a></p>
-            <div class="chapter-content">
-                <h2>Databases and Database Management Systems</h2>
+            <!-- Chapter 12 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/Vq5oqVN48pQLjaNhmW" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Vq5oqVN48pQLjaNhmW"></a></p>
+                    <iframe src="https://giphy.com/embed/iFO29qvMxgEh1EUKd0" frameborder="0" allowFullScreen></iframe>
+                </div>div>
+                <h3>Databases and Database Management Systems</h3>
                 <p>This covers databases, essential for data storage and retrieval in modern organizations. It discusses types of databases, such as relational and NoSQL, and explains data structures like tables, fields, and records. Users learn about SQL as a language for querying databases and the role of database management systems (DBMS) in organizing data. Concepts like data integrity, security, and normalization are explained for effective data handling. Cloud databases are introduced as a scalable solution for remote data access. Finally, the chapter covers key roles in database management, including database administrators, and highlights trends in big data and real-time analytics.</p>
             </div>
         </div>
 
-        <!-- Chapter 13 -->
-        <div class="chapter">
-            <iframe src="https://giphy.com/embed/wBPobnOnFp5tiOzN4z" width="350" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NeighborlyNotaryNYC-neighborly-notary-uspto-library-of-congress-wBPobnOnFp5tiOzN4z"></a></p>
-            <div class="chapter-content">
-                <h2>Intellectual Property Rights, Ethics, Health, Access, and the Environment</h2>
+        <div class="chapter-row">
+            <!-- Chapter 13 -->
+            <div class="chapter">
+                <div class="gif-container">
+                    <iframe src="https://giphy.com/embed/L4lQV5MGnmVlCHsnvp" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/L4lQV5MGnmVlCHsnvp"></a></p>
+                    <iframe src="https://giphy.com/embed/wBPobnOnFp5tiOzN4z" frameborder="0" allowFullScreen></iframe>
+                </div>
+                <h3>Intellectual Property Rights, Ethics, Health, Access, and the Environment</h3>
                 <p>This explores the legal and ethical implications of technology use, focusing on intellectual property (IP) rights, including copyright, trademarks, and patents. It highlights ethical practices for using resources responsibly and discusses digital rights management (DRM) as a tool to prevent unauthorized content sharing. Health and safety concerns, such as ergonomics and digital addiction, are examined alongside environmental issues related to e-waste. The chapter also discusses access to technology, emphasizing the digital divide and the role of assistive technologies. Legislation affecting technology use, such as privacy and data protection laws, is introduced to conclude the chapter.</p>
             </div>
         </div>
-         
+
     </div>
-</body>
-<!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-description">
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 IST1020 Course Hub. All rights reserved.</p>
         <p>This project was done by:Muguna Grace, Mwanyasi John, Ayok, and Murakaru.</p>
-    </div>
-    <div class="social-media-icons">
-        <a href="https://www.facebook.com" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
-        </a>
-        <a href="https://www.youtube.com" target="_blank" class="social-icon">
-            <img src="https://th.bing.com/th/id/OIP.1hX8tUyNC8XTZ8u6BLuGEAHaHa?rs=1&pid=ImgDetMain" alt="YouTube">
-        </a>
-    </div>
-</footer>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                <img src="https://th.bing.com/th/id/OIP.1hX8tUyNC8XTZ8u6BLuGEAHaHa?rs=1&pid=ImgDetMain" alt="YouTube">
+            </a>
+        </div>
+    </footer>
+
+</body>
 </html>
