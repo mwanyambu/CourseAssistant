@@ -4,173 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IST1020 Course Assistant</title>
-    <style>
-        /* Reset and basic styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Header styling */
-        header {
-            background-color: #1e22ff;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            position: relative;
-        }
-        header .logo {
-            position: absolute; 
-            top: 10px;          
-            left: 20px;        
-            width: 50px;        
-            height: auto;       
-        }
-
-        header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2em;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .gif-container {
-            display: flex;
-            gap: 10px; /* Adjust space between GIFs */
-            justify-content: center; /* Center the GIFs in the container */
-            width: 100%; /* Full width for responsiveness */
-        }
-
-        .gif-container iframe {
-            width: 48%; /* Set width for each GIF so they fit side by side */
-            max-width: 100%; /* Ensure GIFs are responsive */
-            height: auto;
-            border-radius: 5px;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Section header styling */
-        h2 {
-            color: #1e90ff;
-            font-size: 2.2em;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .chatbot {
-            width: 100%;
-            height: 600px; /* Increased height for better visibility */
-            margin-bottom: 40px;
-            border: 2px solid #1e90ff; /* Optional border for visual emphasis */
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for better contrast */
-        }
-
-        /* Chapter rows */
-        .chapter-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        /* Chapter card styling */
-        .chapter {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            flex: 1;
-            min-width: 300px;
-            max-width: 48%;
-            padding: 20px;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .chapter h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .chapter iframe {
-            width: 100%;
-            height: 180px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .chapter p {
-            color: #555;
-            font-size: 1em;
-            text-align: justify;
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #2d0ccf;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .social-media-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-icon img {
-            width: 30px;
-            height: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icon img:hover {
-            transform: scale(1.2);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .chapter-row {
-                flex-direction: column;
-            }
-
-            .chapter {
-                max-width: 100%;
-            }
-
-            header h1 {
-                font-size: 2.4em;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-
     <!-- Header Section -->
     <header>
         <img src="images/logo.jpg" alt="IST1020 Course Hub Logo" class="logo">
@@ -183,8 +19,6 @@
         <!-- Chatbot Integration -->
          <p><h1>INTERACT WITH OUR CHATBOT AND GET INSIGHTS AND ANSWERS</h1></p>
         <iframe class="chatbot" src="https://copilotstudio.microsoft.com/environments/113dcd00-8fd2-e5d0-b39f-4c6dfef5df4e/bots/crda1_is1020Help/webchat?__version__=2"></iframe>
-
-        <!-- Chapter Grid Layout -->
 
         <!-- Chapter Grid Layout -->
         <div class="chapter-row">
@@ -206,10 +40,6 @@
                 <h3>The System Unit, Processing, and Memory</h3>
                 <p>This delves into the internal architecture of a computer’s system unit, highlighting its crucial components. It explains the CPU's role as the “brain” of the computer, executing instructions and performing calculations. Memory types such as RAM and ROM are discussed in detail, including their functions in short-term and permanent data storage. The motherboard, which connects all hardware components, is explored along with the system clock, which synchronizes processes. The chapter explains how data is represented in binary and covers various memory storage types, including primary, secondary, and cache memory. It also discusses cooling systems, which prevent components from overheating, and introduces the concept of overclocking to enhance system performance.</p>
             </div>
-            
-        </div>
-
-        <div class="chapter-row">
             <!-- Chapter 3 -->
             <div class="chapter">
                 <div class="gif-container">
@@ -218,7 +48,9 @@
                 <h3>Storage</h3>
                 <p>This explores various storage systems, beginning with an explanation of storage technology fundamentals, such as the distinction between volatile and non-volatile storage. It covers traditional magnetic hard drives, which use spinning disks, and modern solid-state drives (SSDs), which rely on flash memory for faster data access. The chapter also introduces optical discs, like CDs, DVDs, and Blu-rays, and explains how they store data through lasers. Flash memory, found in USB drives and memory cards, is highlighted for its portability. The advantages and disadvantages of each storage type are discussed, alongside their use cases. The chapter concludes with best practices for data backup and discusses cloud storage as a modern solution for both personal and business data management.</p>
             </div>
-
+            
+        </div>
+        <div class="chapter-row">
             <!-- Chapter 4 -->
             <div class="chapter">
                 <div class="gif-container">
@@ -227,9 +59,6 @@
                 <h3>Input and Output</h3>
                 <p>This examines input devices, such as keyboards, mice, scanners, and digital cameras, which allow users to enter data into computers. It explains how input devices translate physical actions into digital data. Output devices, like monitors and printers, are also covered, showing how data is converted back into a readable form. Special attention is given to touchscreen technology, which serves as both an input and output device. The chapter discusses display device quality, covering aspects such as resolution and refresh rates, and explores types of printers, including inkjet and laser printers. Audio input and output devices, such as microphones and speakers, are discussed as well, emphasizing their role in multimedia environments.</p>
             </div>
-        </div>
-
-        <div class="chapter-row">
             <!-- Chapter 5 -->
             <div class="chapter">
                 <div class="gif-container">
@@ -267,9 +96,6 @@
                 <h3>The Internet</h3>
                 <p>>This explores the evolution of the Internet, from its origins as ARPANET to the global network we use today. It covers different types of Internet connections, including broadband, fiber-optic, and satellite. Users learn about ISPs, web browsers, and effective search techniques. Important topics include online privacy and security, with a focus on safe browsing practices and understanding cookies. The chapter also highlights online communication tools, such as email, social media, and video conferencing, and introduces e-commerce fundamentals, explaining how the Internet enables business transactions worldwide. Issues of censorship and data tracking are discussed to underscore the importance of digital rights.</p>
             </div>
-        </div>
-
-        <div class="chapter-row">
             <!-- Chapter 9 -->
             <div class="chapter">
                 <div class="gif-container">
@@ -278,7 +104,9 @@
                 <h3>Security and Privacy</h3>
                 <p>This examines the challenges of maintaining security and privacy in a digital world. Key threats include malware, phishing, and identity theft, which compromise data and disrupt systems. It explains protective measures, such as firewalls, antivirus software, and encryption, which safeguard personal and business information. The chapter also discusses the importance of strong passwords and the risks associated with public Wi-Fi. Legal considerations for cybersecurity, such as data protection laws, are introduced, as well as ethical considerations for handling private data. The chapter concludes with a discussion on future trends in cybersecurity, including biometrics and behavioral analytics.</p>
             </div>
+        </div>
 
+        <div class="chapter-row">
             <!-- Chapter 10 -->
             <div class="chapter">
                 <div class="gif-container">
@@ -287,9 +115,6 @@
                 <h3>Information Systems and System Development</h3>
                 <p>This provides an overview of information systems, covering their design, implementation, and management. Information systems support organizational goals by handling data processing and storage, from transaction systems to decision-support systems. The System Development Life Cycle (SDLC) is introduced as a structured approach to creating systems, with stages like analysis, design, and testing. Alternative development methodologies, such as agile and iterative approaches, are also discussed. The role of stakeholders, including system analysts and end-users, is emphasized in ensuring systems meet user needs. This chapter highlights the importance of project management, especially for large-scale system implementations.</p>
             </div>
-        </div>
-
-        <div class="chapter-row">
             <!-- Chapter 11 -->
             <div class="chapter">
                 <div class="gif-container">
