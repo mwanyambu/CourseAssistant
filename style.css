@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #FFF8DC;
+    background-color: #F5F5DC;
     color: #333;
     line-height: 1.6;
     margin: 0;
@@ -70,11 +70,11 @@ h2 {
 .chatbot {
     display: inline-block;;
     width: 70%;
-    height: 600px; /* Increased height for better visibility */
+    height: 700px; /* Increased height for better visibility */
     margin: 0 auto;
-    border: 2px solid #1e90ff; /* Optional border for visual emphasis */
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for better contrast */
+    border: 10px solid #2F4F4F; /* Optional border for visual emphasis */
+    border-radius: 10px;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.2); /* Shadow for better contrast */
 }
 
 /* Chapter rows */
@@ -88,7 +88,7 @@ h2 {
 
 /* Chapter card styling */
 .chapter {
-    background-color: white;
+    background-color: #F8F8FF;
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     flex: 1;
@@ -120,7 +120,7 @@ h2 {
 
 /* Footer styling */
 footer {
-    background-color: #2d0ccf;
+    background-color: #2F4F4F;
     color: white;
     text-align: center;
     padding: 30px 20px;
